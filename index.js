@@ -6,6 +6,9 @@ const dot = require('dotenv')
 
 dot.config()
 
+//import connection - mongodb 
+require('./connection')
+
 // import express from 'express'
 
 const express = require('express')
