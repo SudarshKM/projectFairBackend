@@ -10,7 +10,9 @@ const router = new express.Router();
 
 // set up pat for each request from view / frontEnd
 
-router.post('/register' , userController.registerController)
+router.post('/register' , userController.registerController);
+
+router.post('/login',userController.loginController)
 
 
 //export the router
