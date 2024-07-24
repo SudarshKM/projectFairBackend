@@ -1,6 +1,7 @@
 // import express
 // import express from 'express'
 
+const projectController = require('./controller/projectController');
 const userController = require('./controller/userController')
 
 const express = require('express')
@@ -13,6 +14,8 @@ const router = new express.Router();
 router.post('/register' , userController.registerController);
 
 router.post('/login',userController.loginController)
+
+router.post('/addproject' ,projectController.addProjectController)
 
 
 //export the router
