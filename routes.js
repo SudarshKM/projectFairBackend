@@ -3,8 +3,8 @@
 
 const projectController = require('./controller/projectController');
 const userController = require('./controller/userController')
-
 const express = require('express')
+const jwt = require('./middleware/jwtMiddleware')
 
 // create an object for rounter
 const router = new express.Router();
@@ -15,7 +15,7 @@ router.post('/register' , userController.registerController);
 
 router.post('/login',userController.loginController)
 
-router.post('/addproject' ,projectController.addProjectController)
+router.post('/addproject' ,jwt,projectController.addProjectController)
 
 
 //export the router
