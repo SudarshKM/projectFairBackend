@@ -4,7 +4,8 @@
 const projectController = require('./controller/projectController');
 const userController = require('./controller/userController')
 const express = require('express')
-const jwt = require('./middleware/jwtMiddleware')
+const jwt = require('./middleware/jwtMiddleware');
+const multerConfig = require('./middleware/multerMiddleware');
 
 // create an object for rounter
 const router = new express.Router();
@@ -15,7 +16,7 @@ router.post('/register' , userController.registerController);
 
 router.post('/login',userController.loginController)
 
-router.post('/addproject' ,jwt,projectController.addProjectController)
+router.post('/addproject' ,jwt,multerConfig.single('projImage'),projectController.addProjectController)
 
 
 //export the router
