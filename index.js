@@ -33,6 +33,12 @@ app.use(express.json());
 //use router
 app.use(router);
 
+//to export upload folder from the server side to use in client side
+//first aegument sholud the name in which we are using the folder in the client
+//second argument - static method to export the folder
+//static method should have the path of the export folder
+app.use('/uploads',express.static('./uploads'))
+
 //set port for the server
 const PORT = 4000 || process.env.PORT;
 
@@ -41,4 +47,6 @@ const PORT = 4000 || process.env.PORT;
 app.listen(PORT , ()=>{
     console.log(`server started at port : ${PORT}`);
 })
+
+
 

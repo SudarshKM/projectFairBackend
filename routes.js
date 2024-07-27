@@ -14,9 +14,18 @@ const router = new express.Router();
 
 router.post('/register' , userController.registerController);
 
-router.post('/login',userController.loginController)
+router.post('/login',userController.loginController);
 
-router.post('/addproject' ,jwt,multerConfig.single('projImage'),projectController.addProjectController)
+router.post('/addproject' ,jwt,multerConfig.single('projImage'),projectController.addProjectController);
+
+//allProjects
+router.get('/allprojects',jwt,projectController.getAllProjectsController);
+
+//homeProjects
+router.get('/homeprojects',projectController.homeProjectsController);
+
+//userProject
+router.get('/userprojects',jwt , projectController.userProjectController)
 
 
 //export the router
