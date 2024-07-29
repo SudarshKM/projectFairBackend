@@ -90,3 +90,18 @@ exports.userProjectController = async (req,res) =>{
     res.status(401).json(error)
   }
 }
+
+exports.deleteProjectController=async(req,res)=>{
+  const {id} = req.params;
+  console.log('delete function id:',id);
+
+  try {
+
+    //deleteOne() : returns true or false
+    //findByIdAndDelete() : returns document
+    const project = await projects.findByIdAndDelete({_id:id})
+    res.status(200).json(project)
+  } catch (error) {
+    res.status(401).status(error)
+  }
+}
