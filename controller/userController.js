@@ -65,7 +65,7 @@ exports.editProfileController = async (req, res) => {
         github,
         linkedin,
         profile: profileImage,
-      }
+      } , {new : true}
     );
 
     await userProfile.save();
